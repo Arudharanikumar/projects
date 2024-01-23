@@ -1,0 +1,9 @@
+{
+	"name": "dkadfprojects",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "63660c6a-babe-4590-92c5-5dc37483cf5c",
+		"tenantId": "cebac951-e053-4631-aee0-7c60d8706b8f"
+	}
+}
