@@ -1,0 +1,84 @@
+{
+	"name": "output3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "@concat('users',utcnow(),'.csv')",
+				"fileSystem": "raw"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "name",
+				"type": "String"
+			},
+			{
+				"name": "username",
+				"type": "String"
+			},
+			{
+				"name": "email",
+				"type": "String"
+			},
+			{
+				"name": "street",
+				"type": "String"
+			},
+			{
+				"name": "suite",
+				"type": "String"
+			},
+			{
+				"name": "city",
+				"type": "String"
+			},
+			{
+				"name": "zipcode",
+				"type": "String"
+			},
+			{
+				"name": "lat",
+				"type": "String"
+			},
+			{
+				"name": "lng",
+				"type": "String"
+			},
+			{
+				"name": "phone",
+				"type": "String"
+			},
+			{
+				"name": "website",
+				"type": "String"
+			},
+			{
+				"name": "company_name",
+				"type": "String"
+			},
+			{
+				"name": "catchPhrase",
+				"type": "String"
+			},
+			{
+				"name": "bs",
+				"type": "String"
+			}
+		]
+	}
+}
