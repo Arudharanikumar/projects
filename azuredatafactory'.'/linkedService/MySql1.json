@@ -5,8 +5,8 @@
 		"annotations": [],
 		"type": "MySql",
 		"typeProperties": {
-			"connectionString": "server=Local instance;port=3306;database=sakila;user=root;sslmode=1;usesystemtruststore=0",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDA1RUI4NjE0LTlGRjQtNEI4QS1CQkNBLTNEMDJFRDg5RTc0OF81MjUzZDAwNS1kY2NjLTQ0ZWYtOGQzYy04NmZiNTE2MWNjZmYiDQp9"
+			"connectionString": "server=localhost;port=3306;database=sakila;user=root;sslmode=0",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDA1RUI4NjE0LTlGRjQtNEI4QS1CQkNBLTNEMDJFRDg5RTc0OF9iOWI1YTQ2Mi1jMTI1LTQxM2UtYmU1Ni01ODdiY2VhYTE1YzkiDQp9"
 		}
 	}
 }
