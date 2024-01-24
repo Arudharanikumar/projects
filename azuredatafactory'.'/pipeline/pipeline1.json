@@ -16,19 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"method": "GET",
-					"linkedServices": [
-						{
-							"referenceName": "RestService1",
-							"type": "LinkedServiceReference"
-						}
-					],
-					"datasets": [
-						{
-							"referenceName": "RestResource1",
-							"type": "DatasetReference"
-						}
-					],
-					"url": "https://jsonplaceholder.typicode.com/posts"
+					"url": "https://jsonplaceholder.typicode.com/post"
 				}
 			},
 			{
