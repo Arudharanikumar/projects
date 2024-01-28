@@ -20,6 +20,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -122,20 +123,47 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"sink": {
-						"type": "ParquetSink",
+					"source": {
+						"type": "DelimitedTextSource",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
-							"type": "ParquetWriteSettings"
+							"type": "DelimitedTextReadSettings"
 						}
 					},
-					"enableStaging": false
+					"sink": {
+						"type": "SqlServerSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
+				"inputs": [
+					{
+						"referenceName": "latsmodifiedsource2",
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": {
+								"value": "@variables('filenameref')",
+								"type": "Expression"
+							}
+						}
+					}
+				],
 				"outputs": [
 					{
-						"referenceName": "Parquet1",
+						"referenceName": "SqlServerTable1",
 						"type": "DatasetReference"
 					}
 				]
