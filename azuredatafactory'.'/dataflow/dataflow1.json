@@ -28,7 +28,7 @@
 				"     enableCdc: true,",
 				"     mode: 'read',",
 				"     skipInitialLoad: false,",
-				"     waterMarkColumn: 'lastmodifieddate',",
+				"     waterMarkColumn: 'lastmodified',",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     query: 'select * from dksamplemain',",
 				"     format: 'query',",
