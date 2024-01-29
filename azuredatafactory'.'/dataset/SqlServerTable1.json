@@ -7,26 +7,10 @@
 		},
 		"annotations": [],
 		"type": "SqlServerTable",
-		"schema": [
-			{
-				"name": "id",
-				"type": "int",
-				"precision": 10
-			},
-			{
-				"name": "salary",
-				"type": "int",
-				"precision": 10
-			},
-			{
-				"name": "name",
-				"type": "varchar"
-			},
-			{
-				"name": "annualsalary",
-				"type": "int",
-				"precision": 10
-			}
-		]
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "dksamplemain"
+		}
 	}
 }
