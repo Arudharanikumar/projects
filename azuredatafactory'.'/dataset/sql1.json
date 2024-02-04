@@ -1,12 +1,12 @@
 {
-	"name": "latsmodifiedsource2",
+	"name": "sql1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorage1",
+			"referenceName": "AzureDataLakeStorage2",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"filename": {
+			"foldername": {
 				"type": "string"
 			}
 		},
@@ -15,17 +15,22 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "@dataset().filename",
+				"folderPath": {
+					"value": "@dataset().foldername",
 					"type": "Expression"
 				},
-				"fileSystem": "@dataset().filename"
+				"fileSystem": "processed"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "name|age",
+				"type": "String"
+			}
+		]
 	}
 }

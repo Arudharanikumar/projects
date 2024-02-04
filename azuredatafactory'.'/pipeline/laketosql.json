@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "sourcecsvfile",
+						"referenceName": "sql2",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
@@ -63,17 +63,17 @@
 							"userProperties": [],
 							"typeProperties": {
 								"dataset": {
-									"referenceName": "latsmodifiedsource2",
+									"referenceName": "sql1",
 									"type": "DatasetReference",
 									"parameters": {
-										"filename": {
+										"foldername": {
 											"value": "@item().name",
 											"type": "Expression"
 										}
 									}
 								},
 								"fieldList": [
-									"columnCount"
+									"childItems"
 								],
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
@@ -82,6 +82,72 @@
 								"formatSettings": {
 									"type": "DelimitedTextReadSettings"
 								}
+							}
+						},
+						{
+							"name": "Filter1",
+							"type": "Filter",
+							"dependsOn": [
+								{
+									"activity": "Get Metadata2",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"items": {
+									"value": "@activity('Get Metadata2').output.childItems",
+									"type": "Expression"
+								},
+								"condition": {
+									"value": "@equals(1,1)",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Stored procedure1",
+							"type": "SqlServerStoredProcedure",
+							"dependsOn": [
+								{
+									"activity": "Filter1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"storedProcedureName": "[dbo].[fol]",
+								"storedProcedureParameters": {
+									"count": {
+										"value": {
+											"value": "@activity('Filter1').output.ItemsCount",
+											"type": "Expression"
+										},
+										"type": "Int32"
+									},
+									"folderpathname": {
+										"value": {
+											"value": "@item().name",
+											"type": "Expression"
+										},
+										"type": "String"
+									}
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "SqlServer2",
+								"type": "LinkedServiceReference"
 							}
 						}
 					]
